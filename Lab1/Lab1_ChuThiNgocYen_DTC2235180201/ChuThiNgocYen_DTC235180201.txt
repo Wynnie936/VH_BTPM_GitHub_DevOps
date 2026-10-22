@@ -1,0 +1,61 @@
+So sánh DevOps vs Truyền thống 
+
+LAB 1 - BANG SO SANH DEVOPS VA TRUYEN THONG
+Muc 4.1: Dien vao Bang So sanh
+
++-------------------------------+------------------------------------------+------------------------------------------+
+| TIEU CHI                      | CACH THU CONG (TRADITIONAL)              | CACH DEVOPS (CI/CD PIPELINE)             |
++-------------------------------+------------------------------------------+------------------------------------------+
+| Lam sao de deploy?            | Dang nhap server, upload file, cau hinh  | Push code len GitHub, pipeline tu dong   |
+|                               | web server va kiem tra thu cong.         | chay va deploy len GitHub Pages.         |
++-------------------------------+------------------------------------------+------------------------------------------+
+| Mat bao lau?                  | Khoang 15-30 phut, tuy do phuc tap.      | Khoang 10 giay theo bai lab.             |
++-------------------------------+------------------------------------------+------------------------------------------+
+| Ai lam deploy?                | Lap trinh vien hoac nguoi quan tri       | GitHub Actions tu dong thuc hien cac     |
+|                               | he thong thuc hien cac buoc bang tay.    | buoc trong pipeline.                     |
++-------------------------------+------------------------------------------+------------------------------------------+
+| Co bi sai sot khong?          | Co the sai sot do quen buoc, cau hinh   | Giam sai sot nhờ cac buoc tu dong va     |
+|                               | sai hoac upload nham phien ban.         | quy trinh thuc hien nhat quan.           |
++-------------------------------+------------------------------------------+------------------------------------------+
+| Rollback neu loi?             | Khoi phuc ban sao luu hoac upload lai    | Dung git revert, push code va de        |
+|                               | phien ban cu bang tay.                  | pipeline tu dong deploy lai.             |
++-------------------------------+------------------------------------------+------------------------------------------+
+| Lam sao biet deploy thanh     | Mo website de kiem tra, xem log va      | Theo doi trang Actions, xem trang thai  |
+| cong?                         | thu nghiem cac chuc nang thu cong.      | thanh cong hoac that bai cua pipeline.  |
++-------------------------------+------------------------------------------+------------------------------------------+
+
+KET LUAN:
+DevOps voi CI/CD giup tu dong hoa qua trinh build, kiem tra va deploy phan mem.
+So voi cach lam thu cong, CI/CD giup tiet kiem thoi gian, giam sai sot do thao tac
+lap lai va dam bao quy trinh trien khai nhat quan. GitHub Actions cho phep theo doi
+ket qua pipeline va tu dong cap nhat website sau moi lan push code len nhanh main.
+
+LUU Y:
+Thoi gian deploy thuc te co the thay doi tuy vao thoi gian chay pipeline va qua trinh
+cap nhat GitHub Pages. Rollback tu dong chi hoat dong khi pipeline va cau hinh deploy
+duoc thiet lap phu hop.
+
+4.3. TRA LOI CAU HOI
+
+Cau 1: DevOps workflow tu dong hoa nhung buoc nao ma cach thu cong phai lam bang tay?
+
+Tra loi:
+DevOps workflow su dung GitHub Actions de tu dong hoa cac buoc build (xay dung), kiem tra (test) va deploy (trien khai) phan mem. Khi lap trinh vien push code len GitHub, pipeline se tu dong chay theo cau hinh da tao, kiem tra file can thiet va trien khai website len GitHub Pages. Nho do, nguoi phat trien khong can thuc hien thu cong tung buoc nhu cach truyen thong.
+
+
+Cau 2: Neu deploy sai (website bi loi), lam sao de quay lai phien ban cu?
+
+Tra loi:
+Neu website bi loi sau khi deploy, em co the su dung lenh git revert <commit> de tao mot commit moi hoan tac cac thay doi gay loi. Sau do, em push commit len nhanh main. GitHub Actions se tu dong chay pipeline va deploy phien ban da duoc hoan tac.
+
+Ngoai ra, git reset --hard <commit> co the dua nhanh hien tai ve mot commit cu, nhung lenh nay se loai bo cac thay doi sau commit duoc chon trong working tree va co the lam mat du lieu chua luu. Neu su dung, can thao tac can than va chu y viec day code len GitHub. Trong moi truong hop thong thuong, git revert la lua chon an toan hon khi muon hoan tac commit da push len repository.
+
+
+Cau 3: GitHub Actions pipeline da giup ban tiet kiem bao nhieu thoi gian so voi cach thu cong?
+
+Tra loi:
+Theo bai lab, cach deploy thu cong mat khoang 15-30 phut do phai download file, upload len server, cau hinh va kiem tra website. Trong khi do, voi DevOps va GitHub Actions, em chi can push code len GitHub de kich hoat pipeline tu dong. Thoi gian chay pipeline trong bai lab khoang 10 giay.
+
+Neu tinh theo cac moc thoi gian tren, thoi gian tiet kiem uoc tinh la khoang 14 phut 50 giay den 29 phut 50 giay cho moi lan deploy, tuong duong giam khoang 98,9% den 99,4% thoi gian.
+
+Tuy nhien, thoi gian thuc te co the thay doi tuy theo toc do chay pipeline, qua trinh cap nhat GitHub Pages va viec kiem tra website sau khi deploy.
